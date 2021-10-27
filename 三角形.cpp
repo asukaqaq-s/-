@@ -2,8 +2,8 @@
 #include <algorithm>
 using namespace std;
 int a[1000];
-/*ÓÉÓÚ±¾ÌâÊÇ¹¹ÔìÒ»¸öÈý½ÇÐÎ£¬ÓÚÊÇ¸ø¶¨ÁËÒ»¸öÑ¡ÔñµÄÊýÄ¿¹Ì¶¨ÊÇ3
-¾Í²»ÐèÒªÊ¹ÓÃµÝ¹éÁË£¬Ö±½ÓÈýÖØÃ¶¾Ù¼´¿É*/
+/*ç”±äºŽæœ¬é¢˜æ˜¯æž„é€ ä¸€ä¸ªä¸‰è§’å½¢ï¼ŒäºŽæ˜¯ç»™å®šäº†ä¸€ä¸ªé€‰æ‹©çš„æ•°ç›®å›ºå®šæ˜¯3
+å°±ä¸éœ€è¦ä½¿ç”¨é€’å½’äº†ï¼Œç›´æŽ¥ä¸‰é‡æžšä¸¾å³å¯*/
 bool check(int i, int j, int k)
 {
 	if (a[i] + a[j] <= a[k] || a[i] + a[k] <= a[j] || a[k] + a[j] <= a[i])
@@ -17,8 +17,8 @@ int main()
 	cin >> n;
 	for (int i = 0;i < n;i++)
 		cin >> a[i];
-	/*·½·¨Ò»£ºÔËÓÃÈýÖØforÑ­»·Ã¶¾ÙÈý¸ö±äÁ¿£¬Èç¹û·ûºÏ¾ÍÈÃËûºÍmax±È½Ï£¬¿´¿´Ë­ÊÇ×î´óÖµ
-	Èç¹ûÃ»ÓÐµÄ»°£¬ÄÇËû¾ÍÊÇ0*/
+	/*æ–¹æ³•ä¸€ï¼šè¿ç”¨ä¸‰é‡forå¾ªçŽ¯æžšä¸¾ä¸‰ä¸ªå˜é‡ï¼Œå¦‚æžœç¬¦åˆå°±è®©ä»–å’Œmaxæ¯”è¾ƒï¼Œçœ‹çœ‹è°æ˜¯æœ€å¤§å€¼
+	å¦‚æžœæ²¡æœ‰çš„è¯ï¼Œé‚£ä»–å°±æ˜¯0*/
 	for(int i=0;i<n;i++)
 		for (int j = 0;j < n;j++)
 			for (int k = 0;k < n;k++)
@@ -28,18 +28,5 @@ int main()
 					MAX = max(MAX, a[i] + a[j] + a[k]);
 			}
 	cout << MAX << '\n';
-	/*·½·¨¶þ£ºÔËÓÃalgorithm¿âÖ±½Ó½«Êý×éÅÅÐò£¬ÅÅÐòºó´ÓºóÍùÇ°Ñ°ÕÒ*/
-	sort(a, a + n);
-	int max2 = 0;
-	for(int i=n-1;i>=0;i--)
-		for(int j=n-2;j>=0;j--)
-			for (int k = n - 3;k >= 0;k--)
-			{
-				if (check(i, j, k))
-				{
-					max2 = max(max2, a[i] + a[j] + a[k]);
-					break;
-				}
-			}
-	cout << max2;
+	/*å¦‚æžœç»™å…¥çš„æ•°æ®æ˜¯ä¹±åºçš„ï¼Œå¯ä»¥è¿ç”¨sortåŽ»æŠŠä»–æŽ’åº*/
 }
